@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="SampleApplication">
+    <head>
+        <meta charset="utf-8">
+        <!-- <base href="/"> -->
+        <title>Angular Sample Application</title>
+        
+        <!-- Bootstrap Setup -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+        
+        <!-- Apllication css setup-->
+        <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Cormorant+Infant|Crimson+Text|Dancing+Script|Josefin+Sans|Kaushan+Script|Old+Standard+TT|Poiret+One|Tangerine" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="public/components/MyApp/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        
+        <!-- Fuscion char library  -->
+        <script src="http://static.fusioncharts.com/code/latest/fusioncharts.js?cacheBust=8232"></script>
+        <script src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js?cacheBust=8232">
+        </script>
+
+        <!--  Angular Setup -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <!-- Application Setup -->
+        <script src="public/appRoutes.js"></script>
+        <script src="public/app.js"></script>
+        <script src="public/config.js"></script>
+
+        <!--  Controllers -->
+        <script src="public/components/MyApp/controllers/homeController.js"></script>
+
+    </head>
+    <body>
+        <simple-navbar></simple-navbar>
+        <ui-view></ui-view>
+    </body>
+</html>

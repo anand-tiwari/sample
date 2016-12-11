@@ -1,0 +1,22 @@
+{
+  "name": "drf-sample-client",
+  "description": "A sample Angular application serving a Django backend as a separate service",
+  "main": "server.js",
+  "authors": [
+    "Anand Tiwari"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_cache"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-sanitize": "^1.5.9",
+    "angular-animate": "^1.5.9",
+    "angular-ui-router": "^0.3.1",
+    "angular-bootstrap": "2.3.0"
+  }
+}

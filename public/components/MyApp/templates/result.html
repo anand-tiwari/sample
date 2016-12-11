@@ -1,0 +1,47 @@
+<div>
+	<div class="header">
+		<div class="row">
+			<div class="col-md-9">
+				<div ng-repeat="item in Questions" class="margin-question">
+					<div class="col-md-12 answer-list" ng-if="$index!=0">{{item.name}}</div>
+					<div class="row col-md-12 answer-list" ng-if="$index==0">
+							<div class="pull-left">{{item.name}}</div>
+							<div class="pull-right">
+								<span class="wrong-icon-color"><i class="fa fa-times" aria-hidden="true"></i>wrong answer</span>
+  								<span class="right-icon-color"><i class="fa fa-check" aria-hidden="true"></i>right answer</span>
+							</div>
+					</div>
+					<div ng-show="item.useranswer">
+						<div class="row answer">
+							<div class="col-md-6 option1 result" 
+								ng-class="{correct: item.correctanswer==item.optionOne}" >{{item.optionOe}}</div>
+							<div class="col-md-6 option2 result"
+								ng-class="{correct: item.correctanswer==item.optionTwo}" >{{item.optionTwo}}</div>
+						</div>
+						<div class="row answer">
+							<div class="col-md-6 option3 result" 
+								ng-class="{correct: item.correctanswer==item.optionThree}" >{{item.optionThree}}</div>
+							<div class="col-md-6 option4 result"
+								ng-class="{correct: item.correctanswer==item.optionFour}" >{{item.optionFour}}</div>
+						</div>
+					</div>
+					<div ng-show="!item.useranswer">
+						<div class="row answer">
+							<div class="col-md-6 option1 result"
+								ng-class="{wrong: item.correctanswer == item.optionOne}">{{item.optionOne}}</div>
+							<div class="col-md-6 option2 result"
+								ng-class="{wrong: item.correctanswer == item.optionTwo}">{{item.optionTwo}}</div>
+						</div>
+						<div class="row answer">
+							<div class="col-md-6 option3 result"
+								ng-class="{wrong: item.correctanswer == item.optionThree}">{{item.optionThree}}</div>
+							<div class="col-md-6 option4 result" 
+								ng-class="{wrong: item.correctanswer == item.optionFour}">{{item.optionFour}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="chartRenderId" class="col-md-3"></div>
+		</div>
+	</div>
+</div>

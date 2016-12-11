@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default nav-backg-color" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand" ng-click="openSidebar=true">&#9776;</span>
+      <a class="navbar-brand" ui-sref="home"
+                    uib-popover="Go to homepage"
+                    popover-placement="bottom"
+                    popover-trigger="'mouseenter'">Home</a>
+    </div>
+    <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="question"
+                    uib-popover="Go to Question"
+                    popover-placement="bottom"
+                    popover-trigger="'mouseenter'">Question</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right login-block" ng-show="home">
+            <li><input type="text" name="usename" ng-modal="username" 
+                        placeholder="USERNAME" 
+                        uib-popover="enter username"
+                        popover-placement="bottom"
+                        popover-trigger="'mouseenter'" >
+            </li>
+            <li><button class="btn btn-success" ng-click="signupForm()">submit</button></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right login-block" ng-show="!home">
+            <li><button class="btn btn-success" ng-click="logout()">logout</button></li>
+        </ul>
+    </div>
+</nav>
