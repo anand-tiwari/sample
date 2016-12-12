@@ -5,18 +5,18 @@ angular
     $stateProvider.state({
         name: 'home',
         url: '/',
-        templateUrl: 'public/components/MyApp/templates/homepage.html',
-        controller: 'homeController'
+        templateUrl: 'public/components/MyApp/templates/homepage.html'
+        // controller: 'homeController'
     }).state({
         name: 'question',
         url: '/question',
-        templateUrl: 'public/components/MyApp/templates/questions.html',
-        controller: 'homeController'
+        templateUrl: 'public/components/MyApp/templates/questions.html'
+        // controller: 'homeController'
     }).state({
         name: 'result',
         url: '/result',
-        templateUrl: 'public/components/MyApp/templates/result.html',
-        controller: 'homeController'
+        templateUrl: 'public/components/MyApp/templates/result.html'
+        // controller: 'homeController'
     });
 
     $urlRouterProvider.otherwise('/');

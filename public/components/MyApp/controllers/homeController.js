@@ -7,18 +7,20 @@ MyApp
             cache: 'false',
             dataType: 'json',
             success: function(res){
-              $scope.Questions = res;
-              $scope.totalPage = $scope.Questions.length-1;
-              $scope.ques = $scope.Questions[$scope.currentpage];
+                $scope.Questions = res;
+                $scope.totalPage = $scope.Questions.length-1;
+                $scope.ques = $scope.Questions[$scope.currentpage];
             }
         });
+        $scope.correctanswerCount = 0 ;
+        $scope.home = true;
+        $scope.username="anand";
+        $scope.openSidebar= false;
+        $scope.open='';
+        $scope.currentpage = 0;
+        $scope.completed = false;
     };
-    // simple signup and logout        
-    $scope.username="anand";
-    $scope.openSidebar= false;
-    $scope.open='';
-
-    $scope.home = true;
+    // simple signup and logout    
     $scope.signupForm = function() {
       $state.go('question');
       $scope.home = false;
@@ -28,11 +30,6 @@ MyApp
       $state.go('home');
       $scope.home = true;
     };
-
-    $scope.currentpage = 0;
-    $scope.completed = false;
-    $scope.numberOfCorrectAnswer = 0 ;
-
     $scope.answer = function(ans){
         $scope.Questions[$scope.currentpage]["useranswer"] = ans;
         if($scope.Questions[$scope.currentpage]["correctanswer"]==ans){
@@ -71,22 +68,27 @@ MyApp
         });
         angular.forEach($scope.Questions, function(value,key){
             if(value.count==1){
-                $scope.numberOfCorrectAnswer++;
+                $scope.correctanswerCount++;
             }
         });
+        
     };
-// $scope.chartRenderId = Math.random()
+    $scope.showResult = function(){
+        $state.go('result');
+    }
+
+
 FusionCharts.ready(function () {
     var revenueChart = new FusionCharts({
         type: 'doughnut3d',
-        renderAt: 'chartRenderId',
+        renderAt: 'chartContainer',
         width: '450',
         height: '400',
         dataFormat: 'json',
         dataSource: {
             "chart": {
                 "caption": "Percentage correctanswer",
-                "subcaption":"TotalQuestion = "+($scope.totalPage+1)+"\n RIGHT = "+$scope.numberOfCorrectAnswer,
+                "subcaption":"TotalQuestion = "+($scope.totalPage+1)+"\n RIGHT = "+$scope.correctanswerCount,
                 "numberPrefix": "$",
                 "paletteColors": "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000",
                 "bgColor": "#ffffff",
@@ -114,11 +116,11 @@ FusionCharts.ready(function () {
             "data": [
                 {
                     "label": "Wrong",
-                    "value": $scope.totalPage-$scope.numberOfCorrectAnswer
+                    "value": $scope.totalPage-$scope.correctanswerCount
                 }, 
                 {
                     "label": "Correct",
-                    "value": $scope.numberOfCorrectAnswer
+                    "value": $scope.correctanswerCount
                 }
             ]
         }
@@ -129,7 +131,7 @@ FusionCharts.ready(function () {
    return {
      restrict: 'E',
      replace:true,
-     templateUrl: 'public/components/MyApp/templates/navbar.html',
-     controller: 'homeController'
+     templateUrl: 'public/components/MyApp/templates/navbar.html'
+     // controller: 'homeController'
    };
 });
