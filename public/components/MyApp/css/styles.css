@@ -69,16 +69,16 @@ input{
   font-size: 20px;
 }
 .option1::before{
-  content: 'A ';
+  content: 'A. ';
 }
 .option2::before{
-  content: 'B ';
+  content: 'B. ';
 }
 .option3::before{
-  content: 'C ';
+  content: 'C. ';
 }
 .option4::before{
-  content: 'D ';
+  content: 'D. ';
 }
 
 .option1, .option2, .option3, .option4{
@@ -192,7 +192,7 @@ input{
     border-radius: 0px;
 }
 
-#chartRenderId{
+.chart{
   position: fixed;
   top: 120px;
   right: 126px;
