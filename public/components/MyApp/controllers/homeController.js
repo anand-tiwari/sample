@@ -1,54 +1,18 @@
 MyApp
     .controller('homeController', ['$scope','$http','$state','$stateParams', function($scope, $http, $state, $stateParams) {
 
-$scope.Questions = [
-    {
-      "name": "What is the province that starts with the letter O?",
-      "optionOne": "Ontario",
-      "optionTwo": "New Brunswick",
-      "optionThree": "Manitoba",
-      "optionFour": "Quebec",
-      "correctanswer":"Ontario",
-      "useranswer":false
-    },
-    {
-      "name": "What province begins with the letter Q?",
-      "optionOne": "Ontario",
-      "optionTwo": "New Brunswick",
-      "optionThree": "Quebec",
-      "optionFour": "Manitoba",
-      "correctanswer":"Quebec",
-      "useranswer":false
-    },
-    {
-      "name": "Which of these provinces start with 'New'?",
-      "optionOne": "Ontario",
-      "optionTwo": "New Brunswick",
-      "optionThree": "Quebec",
-      "optionFour": "Manitoba",
-      "correctanswer":"New Brunswick",
-      "useranswer":false
-    },
-    {
-      "name": "Which of these begin with the word 'Man'?",
-     "optionOne": "Ontario",
-      "optionTwo": "New Brunswick",
-      "optionThree": "Quebec",
-      "optionFour": "Manitoba",
-      "correctanswer":"Manitoba",
-      "useranswer":false
-    },
-    {
-      "name": "Which of these begin with the word 'Nova'?",
-       "optionOne": "Ontario",
-      "optionTwo": "New Brunswick",
-      "optionThree": "Nova Scotia",
-      "optionFour": "Manitoba",
-      "correctanswer":"Nova Scotia",
-      "useranswer":false
-    }
-  ];
-      
+        $.ajax({
+            type: 'GET',
+            url:  "public/components/MyApp/controllers/data.json",
+            cache: 'false',
+            dataType: 'json',
+            success: function(res){
+              $scope.Questions = res.data;
+              $scope.totalPage = $scope.Questions.length-1;
+              $scope.ques = $scope.Questions[$scope.currentpage];
+            }
+        });
+
     // simple signup and logout        
     $scope.username="anand";
     $scope.openSidebar= false;
@@ -66,8 +30,6 @@ $scope.Questions = [
     };
 
     $scope.currentpage = 0;
-    $scope.totalPage = $scope.Questions.length-1;
-    $scope.ques = $scope.Questions[$scope.currentpage];
     $scope.completed = false;
     $scope.numberOfCorrectAnswer = 0 ;
 
@@ -102,8 +64,10 @@ $scope.Questions = [
         $(document).ready(function(){
             $('.ripple-effect-wrap').remove();
         });
+        console.log($scope.Questions);
+        // $scope.newArray = $scope.Questions;
     };
-
+// $scope.chartRenderId = Math.random()
 FusionCharts.ready(function () {
     var revenueChart = new FusionCharts({
         type: 'doughnut3d',

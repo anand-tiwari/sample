@@ -11,7 +11,8 @@
   								<span class="right-icon-color"><i class="fa fa-check" aria-hidden="true"></i>right answer</span>
 							</div>
 					</div>
-					<div ng-show="item.useranswer">
+					<div>{{item.useranswer}}</div>
+					<div ng-show="item.useranswer==true">
 						<div class="row answer">
 							<div class="col-md-6 option1 result" 
 								ng-class="{correct: item.correctanswer==item.optionOne}" >{{item.optionOe}}</div>
@@ -25,7 +26,7 @@
 								ng-class="{correct: item.correctanswer==item.optionFour}" >{{item.optionFour}}</div>
 						</div>
 					</div>
-					<div ng-show="!item.useranswer">
+					<div ng-show="item.useranswer==false">
 						<div class="row answer">
 							<div class="col-md-6 option1 result"
 								ng-class="{wrong: item.correctanswer == item.optionOne}">{{item.optionOne}}</div>
