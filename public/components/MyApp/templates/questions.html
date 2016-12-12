@@ -23,14 +23,15 @@
 
 				<!-- next previous button -->
 				<div class="row col-md-10">
-					<div class="pull-left prev" 
+					<!-- <div class="pull-left prev" 
 								ng-click="prev()" 
-								ng-hide="currentpage==0">PREV</div>
-
+								ng-hide="currentpage==0">PREV</div> -->
 					<div class="pull-right next" ng-click="next()"
+								ng-class="{disable: disableButton==true}"
 								ng-hide="currentpage==totalPage">NEXT</div>
 
 					<div class="pull-right finish" ng-click="finish()"
+								ng-class="{disable: disableButton==true}"
 								ng-show="currentpage==totalPage">FINISH</div>
 				</div>
 				<!-- end of next prev button -->

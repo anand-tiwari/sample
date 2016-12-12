@@ -27,13 +27,14 @@
             </li>
         </ul>
         <ul class="nav navbar-nav pull-right login-block" ng-show="home">
-            <li><input type="text" name="usename" ng-modal="username" 
+            <li><input type="text" name="usename" ng-model="username" 
                         placeholder="USERNAME" 
                         uib-popover="enter username"
                         popover-placement="bottom"
                         popover-trigger="'mouseenter'" >
             </li>
-            <li><button class="btn btn-success" ng-click="signupForm()">submit</button></li>
+            <li><button class="btn btn-success" ng-click="signupForm()" 
+                    ng-disabled="!username">submit</button></li>
         </ul>
         <ul class="nav navbar-nav pull-right login-block" ng-show="!home">
             <li><button class="btn btn-success" ng-click="logout()">logout</button></li>
