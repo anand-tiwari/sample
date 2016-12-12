@@ -22,7 +22,8 @@
             <li><a ui-sref="result"
                     uib-popover="Go to Result"
                     popover-placement="bottom"
-                    popover-trigger="'mouseenter'">Result</a>
+                    popover-trigger="'mouseenter'"
+                    ng-disabled="answerList.length==0">Result</a>
             </li>
         </ul>
         <ul class="nav navbar-nav pull-right login-block" ng-show="home">

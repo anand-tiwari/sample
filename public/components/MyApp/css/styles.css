@@ -99,6 +99,8 @@ input{
   border: 1px solid white;
   border-radius: 0px;
   margin: 2px 4px;
+  background-color: #858C93;
+  color: white;
 }
 .answer-list{
   font-size: 28px;
@@ -126,7 +128,7 @@ input{
 }
 /* correct or wrong selection of answer*/
 .correct{
-  background: brown !important;
+  background: green !important;
 }
 .wrong{
   background: red !important;

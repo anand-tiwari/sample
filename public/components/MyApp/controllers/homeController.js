@@ -1,18 +1,18 @@
 MyApp
     .controller('homeController', ['$scope','$http','$state','$stateParams', function($scope, $http, $state, $stateParams) {
-
+    $scope.start = function(){
         $.ajax({
             type: 'GET',
-            url:  "public/components/MyApp/controllers/data.json",
+            url:  "data.json",
             cache: 'false',
             dataType: 'json',
             success: function(res){
-              $scope.Questions = res.data;
+              $scope.Questions = res;
               $scope.totalPage = $scope.Questions.length-1;
               $scope.ques = $scope.Questions[$scope.currentpage];
             }
         });
-
+    };
     // simple signup and logout        
     $scope.username="anand";
     $scope.openSidebar= false;
@@ -34,13 +34,12 @@ MyApp
     $scope.numberOfCorrectAnswer = 0 ;
 
     $scope.answer = function(ans){
+        $scope.Questions[$scope.currentpage]["useranswer"] = ans;
         if($scope.Questions[$scope.currentpage]["correctanswer"]==ans){
-          $scope.Questions[$scope.currentpage]["useranswer"] = true;
-          $scope.numberOfCorrectAnswer++;
+            $scope.Questions[$scope.currentpage]["count"] = 1;
         }else{
-          $scope.Questions[$scope.currentpage]["useranswer"] = false;
+            $scope.Questions[$scope.currentpage]["count"] = 0;
         }
-        console.log($scope.Questions);
     };
 
     $scope.next = function(){
@@ -58,14 +57,23 @@ MyApp
             $('.ripple-effect-wrap').remove();
         });
     };
+    $scope.whatClassIsIt = function(correctanswer, option, useranswer){
+        if(correctanswer==option)
+            return 'correct';
+        else if(useranswer==option)
+            return 'wrong';
+    }
 
     $scope.finish = function(){
         $scope.completed=true;
         $(document).ready(function(){
             $('.ripple-effect-wrap').remove();
         });
-        console.log($scope.Questions);
-        // $scope.newArray = $scope.Questions;
+        angular.forEach($scope.Questions, function(value,key){
+            if(value.count==1){
+                $scope.numberOfCorrectAnswer++;
+            }
+        });
     };
 // $scope.chartRenderId = Math.random()
 FusionCharts.ready(function () {
