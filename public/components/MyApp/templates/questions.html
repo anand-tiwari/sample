@@ -7,17 +7,17 @@
 					{{ques.name}}
 				</div>
 				<div class="row answer">
-					<div class="col-md-6 option1 ripple-effect" 
+					<div class="col-md-6 option ripple-effect"
 								ng-click="answer(ques.optionOne)" 
-								>{{ques.optionOne}}</div>
-					<div class="col-md-6 option2 ripple-effect" 
-								ng-click="answer(ques.optionTwo)">{{ques.optionTwo}}</div>
+								><span>A. {{ques.optionOne}}</span></div>
+					<div class="col-md-6 option ripple-effect" 
+								ng-click="answer(ques.optionTwo)"><span>B. {{ques.optionTwo}}</span></div>
 				</div>
 				<div class="row answer">
-					<div class="col-md-6 option3 ripple-effect" 
-								ng-click="answer(ques.optionThree)">{{ques.optionThree}}</div>
-					<div class="col-md-6 option4 ripple-effect" 
-								ng-click="answer(ques.optionFour)">{{ques.optionFour}}</div>
+					<div class="col-md-6 option ripple-effect" 
+								ng-click="answer(ques.optionThree)"><span>C. {{ques.optionThree}}</span></div>
+					<div class="col-md-6 option ripple-effect" 
+								ng-click="answer(ques.optionFour)"><span>D. {{ques.optionFour}}</span></div>
 				</div>
 				<!-- End of Question section -->
 

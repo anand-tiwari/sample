@@ -6,24 +6,24 @@
 					<div class="col-md-12 answer-list" ng-if="$index!=0">{{item.name}}</div>
 					<div class="row col-md-12 answer-list" ng-if="$index==0">
 							<div class="pull-left">{{item.name}}</div>
-							<div class="pull-right">
-								<span class="wrong-icon-color"><i class="fa fa-times" aria-hidden="true"></i>wrong selected answer</span>
-  								<span class="right-icon-color"><i class="fa fa-check" aria-hidden="true"></i>right answer</span>
-							</div>
 					</div>
 						<div class="row answer">
-							<div class="col-md-6 option1 result" 
+							<div class="col-md-6 option result" 
 								ng-class='whatClassIsIt(item.correctanswer, item.optionOne, item.useranswer)'>{{item.optionOne}}</div>
-							<div class="col-md-6 option2 result"
+							<div class="col-md-6 option result"
 								ng-class='whatClassIsIt(item.correctanswer, item.optionTwo, item.useranswer)'>{{item.optionTwo}}</div>
 						</div>
 						<div class="row answer">
-							<div class="col-md-6 option3 result" 
+							<div class="col-md-6 option result" 
 								ng-class='whatClassIsIt(item.correctanswer, item.optionThree, item.useranswer)'>{{item.optionThree}}</div>
-							<div class="col-md-6 option4 result"
+							<div class="col-md-6 option result"
 								ng-class='whatClassIsIt(item.correctanswer, item.optionFour, item.useranswer)'>{{item.optionFour}}</div>
 						</div>
 				</div>
+			</div>
+			<div class="notificationIcon">
+				<span class="wrong-icon-color"><i class="fa fa-times" aria-hidden="true"></i>wrong selected answer</span>
+  				<span class="right-icon-color"><i class="fa fa-check" aria-hidden="true"></i>right answer</span>
 			</div>
 			<div id="chartContainer" class="col-md-3 chart"></div>
 		</div>

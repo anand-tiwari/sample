@@ -20,7 +20,8 @@ MyApp.directive('rippleEffect', function($timeout) {
                 'left'      : the_dom_offset.left,
                 'z-index'     : 100,
                 'overflow'    : 'hidden',
-                'background-clip' : 'padding-box'
+                'background-clip' : 'padding-box',
+                'border':'2px solid white'
               });
               ripple_effect_wrap.appendTo('body');
 
@@ -32,7 +33,7 @@ MyApp.directive('rippleEffect', function($timeout) {
               ripple.css({
                 'width'       : circular_width,
                 'height'      : circular_width,
-                'background'      : 'rgba(0,0,0,0.3)',
+                'background'      : 'green',
                 'position'      : 'absolute',
                 'top'       : click_y_ripple - ( circular_width / 2 ),
                 'left'        : click_x_ripple - ( circular_width / 2 ),
@@ -42,8 +43,8 @@ MyApp.directive('rippleEffect', function($timeout) {
                 'border-radius'               : '50%',
                 '-webkit-animation-name'  : 'ripple-animation',
                 'animation-name'                : 'ripple-animation',
-                '-webkit-animation-duration'    : '2s',
-                'animation-duration'            : '2s',
+                '-webkit-animation-duration'    : '1s',
+                'animation-duration'            : '1s',
                 '-webkit-animation-fill-mode'   : 'both',
                 'animation-fill-mode'           : 'both'        
               });

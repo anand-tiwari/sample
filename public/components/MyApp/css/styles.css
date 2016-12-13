@@ -69,19 +69,8 @@ input{
 .answer{
   font-size: 20px;
 }
-.option1::before{
-  content: 'A. ';
-}
-.option2::before{
-  content: 'B. ';
-}
-.option3::before{
-  content: 'C. ';
-}
-.option4::before{
-  content: 'D. ';
-}
-.option1, .option2, .option3, .option4{
+
+.option{
   width: 432px;
   background: #E91E63;
   color: white;
@@ -226,4 +215,17 @@ input{
 }
 .header{
   padding-top: 50px;
+}
+
+.ripple-effect>span{
+  z-index: 300;
+  position: relative;
+}
+
+.notificationIcon{
+  font-size: 22px;
+  font-family: sans-serif;
+  position: fixed;
+  top: 10%;
+  right: 45px;
 }
